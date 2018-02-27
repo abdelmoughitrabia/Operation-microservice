@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: operation-ms
+  datasource:
+    url: jdbc:mysql://localhost:3306/operation-microservice-db
+    username: root
+    password:
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+server:
+  port: 8082
+
+feign:
+    hystrix:
+        enabled: true
