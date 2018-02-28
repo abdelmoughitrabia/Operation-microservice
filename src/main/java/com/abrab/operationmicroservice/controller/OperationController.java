@@ -3,6 +3,7 @@ package com.abrab.operationmicroservice.controller;
 import com.abrab.operationmicroservice.domain.Operation;
 import com.abrab.operationmicroservice.service.OperationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -16,6 +17,13 @@ public class OperationController {
 
     @Autowired
     private OperationService operationService;
+    @Value("${global}")
+    private String testConf;
+
+    @GetMapping("/conf")
+    public String testConf() {
+        return testConf;
+    }
 
     @GetMapping("/operations")
     public List<Operation> getOperations() {
